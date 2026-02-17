@@ -26,11 +26,22 @@
             <td>{{ $contact->contato }}</td>
             <td>{{ $contact->email }}</td>
             <td class="actions">
-                <a href="{{ route('contacts.edit', $contact->id) }}">Editar</a>
+                <a href="{{ route('contacts.edit', $contact->id) }}">
+
+                    <button>Editar</button></a>
                     <span> | </span>
-                <a href='#'>Excluir</a>
+
+                <form action="{{ route('contacts.destroy', $contact->id) }}"
+                      method="POST" style="display:inline"
+                      onsubmit="return confirm('Tem certeza que deseja excluir este contato?');">
+                      @csrf
+                      @method('DELETE')
+                    <button type="submit">Excluir</button>
+                </form>
             </td>
         </tr>
+
+
     @empty
         <tr>
             <td colspan="4">Nenhum contato encontrado.</td>

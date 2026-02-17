@@ -25,7 +25,8 @@
     <a href="{{ route('contacts.edit', $contact)}}">Editar</a>
 </p>
 
-<form action="" method="POST"
+<form action="{{ route('contacts.destroy', $contact) }}"
+      method="POST"
       onsubmit="return confirm('Tem certeza que deseja excluir este contato?');" style="display:inline-block;"
 >
     @csrf
