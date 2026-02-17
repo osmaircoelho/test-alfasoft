@@ -18,15 +18,15 @@
     <tbody>
     @forelse ($contacts as $contact)
         <tr>
-            <td>{{ $contact->nome }}</td>
+            <td>
+                <a href="{{ route('contacts.show', $contact) }}">
+                    {{ $contact->nome }}
+                </a>
+            </td>
             <td>{{ $contact->contato }}</td>
             <td>{{ $contact->email }}</td>
             <td class="actions">
-
-                    <a href="#">Editar</a>
-                    <span> | </span>
-                    <a href="#">Excluir</a>
-
+                 <a href="#">Editar</a><span> | </span><a href="#">Excluir</a>
             </td>
         </tr>
     @empty

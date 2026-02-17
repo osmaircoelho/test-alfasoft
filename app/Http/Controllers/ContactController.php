@@ -29,7 +29,12 @@ class ContactController extends Controller
         //Por enquanto, redireciona para a lista.
         //depois podemos trocar para contact.show.
         return redirect()
-            ->route('contacts.index')
+            ->route('contacts.show', $contact)
             ->with('success', 'Contato criado com sucesso.');
+    }
+
+    public function show(Contact $contact)
+    {
+        return view('contact.show', compact('contact'));
     }
 }
