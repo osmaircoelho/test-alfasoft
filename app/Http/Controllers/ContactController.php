@@ -52,4 +52,13 @@ class ContactController extends Controller
             ->route('contacts.show', $contact)
             ->with('success', 'Contato atualizado com sucesso.');
     }
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+
+        return redirect()
+            ->route('contacts.index')
+            ->with('success', 'Contato excluido com sucesso.');
+    }
+
 }
