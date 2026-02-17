@@ -2,6 +2,12 @@
 
 <table>
     <thead>
+    @if( session('success'))
+        <div style="color: green; margin-bottom: 10px;">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <tr>
         <th>Nome</th>
         <th>Contato</th>

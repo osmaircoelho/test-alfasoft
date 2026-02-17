@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -12,5 +13,23 @@ class ContactController extends Controller
         $contacts = Contact::query()->latest()->paginate(10);
 
         return view('contact.index', compact('contacts'));
+    }
+
+    public function create()
+    {
+        $contact = new Contact();
+
+        return view('contact.create', compact('contact'));
+    }
+
+    public function store(StoreContactRequest $request)
+    {
+        $contact = Contact::create($request->validated());
+
+        //Por enquanto, redireciona para a lista.
+        //depois podemos trocar para contact.show.
+        return redirect()
+            ->route('contacts.index')
+            ->with('success', 'Contato criado com sucesso.');
     }
 }
