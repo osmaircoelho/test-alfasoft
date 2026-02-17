@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([AdminUserSeeder::class]);
-        Contact::factory()->count(10)->create();
+        Contact::factory()->count(20)->create();
     }
 }
