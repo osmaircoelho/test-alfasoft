@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -36,5 +37,19 @@ class ContactController extends Controller
     public function show(Contact $contact)
     {
         return view('contact.show', compact('contact'));
+    }
+
+    public function edit(Contact $contact)
+    {
+        return view('contact.edit', compact('contact'));
+    }
+
+    public function update(UpdateContactRequest $request, Contact $contact)
+    {
+        $contact->update($request->validated());
+
+        return redirect()
+            ->route('contacts.show', $contact)
+            ->with('success', 'Contato atualizado com sucesso.');
     }
 }
