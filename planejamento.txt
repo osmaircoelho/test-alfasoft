@@ -1,0 +1,4 @@
+[] git
+ [] criar repositorio no git junto com o cloud
+ [] conectar git ao cloud
+ [] subir arquivos do cloud git push
