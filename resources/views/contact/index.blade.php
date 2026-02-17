@@ -26,7 +26,9 @@
             <td>{{ $contact->contato }}</td>
             <td>{{ $contact->email }}</td>
             <td class="actions">
-                 <a href="#">Editar</a><span> | </span><a href="#">Excluir</a>
+                <a href="{{ route('contacts.edit', $contact->id) }}">Editar</a>
+                    <span> | </span>
+                <a href='#'>Excluir</a>
             </td>
         </tr>
     @empty

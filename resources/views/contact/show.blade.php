@@ -22,11 +22,10 @@
 <p><strong>Atualizado em:</strong> {{ $contact->updated_at }}</p>
 
 <p>
-    <a href="#">Editar</a>
-
+    <a href="{{ route('contacts.edit', $contact)}}">Editar</a>
 </p>
 
-<form action="{{ route('contacts.destroy', $contact) }}" method="POST"
+<form action="" method="POST"
       onsubmit="return confirm('Tem certeza que deseja excluir este contato?');" style="display:inline-block;"
 >
     @csrf
