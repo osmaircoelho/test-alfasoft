@@ -25,19 +25,23 @@
             </td>
             <td>{{ $contact->contato }}</td>
             <td>{{ $contact->email }}</td>
+
             <td class="actions">
+                @auth
                 <a href="{{ route('contacts.edit', $contact->id) }}">
+                    <button>Editar</button>
+                </a>
 
-                    <button>Editar</button></a>
-                    <span> | </span>
+                        <span> | </span>
 
-                <form action="{{ route('contacts.destroy', $contact->id) }}"
-                      method="POST" style="display:inline"
-                      onsubmit="return confirm('Tem certeza que deseja excluir este contato?');">
-                      @csrf
-                      @method('DELETE')
-                    <button type="submit">Excluir</button>
-                </form>
+                    <form action="{{ route('contacts.destroy', $contact->id) }}"
+                        method="POST" style="display:inline"
+                        onsubmit="return confirm('Tem certeza que deseja excluir este contato?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Excluir</button>
+                    </form>
+                @endauth
             </td>
         </tr>
 
